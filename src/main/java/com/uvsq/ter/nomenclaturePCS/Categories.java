@@ -1,34 +1,29 @@
 package com.uvsq.ter.nomenclaturePCS;
 
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.border.EmptyBorder;
-
-import com.mysql.jdbc.Statement;
-
-import net.proteanit.sql.DbUtils;
-
-import javax.swing.JLabel;
-import javax.swing.JOptionPane;
+import java.awt.Color;
+import java.awt.Cursor;
+import java.awt.Dimension;
+import java.awt.Font;
+import java.awt.Toolkit;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-import javax.swing.JTable;
-import javax.swing.JScrollPane;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
-import javax.swing.JProgressBar;
 import javax.swing.ImageIcon;
-import java.awt.Color;
-import java.awt.Font;
-import java.awt.Toolkit;
-
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.JProgressBar;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
 import javax.swing.ListSelectionModel;
-import java.awt.Cursor;
-import java.awt.Dimension;
+import javax.swing.border.EmptyBorder;
+import net.proteanit.sql.DbUtils;
 
 public class Categories extends JFrame {
 
@@ -189,7 +184,7 @@ public class Categories extends JFrame {
 		String sql = "select CODE,LIBELLE from " + dbtable + "  where code like  \'" + code + "%\'";
 
 		try {
-			stmt = (Statement) conn.createStatement();
+			stmt =  conn.createStatement();
 			rs = stmt.executeQuery(sql);
 			table.setModel(DbUtils.resultSetToTableModel(rs));
 			table.getColumnModel().getColumn(0).setPreferredWidth(128);
@@ -205,7 +200,7 @@ public class Categories extends JFrame {
 		String sql = "SELECT * FROM professions WHERE CODE >=" + code
 				+ "  and Code < (SELECT code from categorie WHERE CODE > " + code + " LIMIT 1)";
 		try {
-			stmt = (Statement) conn.createStatement();
+			stmt =  conn.createStatement();
 			rs = stmt.executeQuery(sql);
 			table.setModel(DbUtils.resultSetToTableModel(rs));
 			table.getColumnModel().getColumn(0).setPreferredWidth(128);

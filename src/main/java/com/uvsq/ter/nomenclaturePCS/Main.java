@@ -115,7 +115,7 @@ public class Main extends JFrame {
 
 			}
 		});
-		label.setIcon(new ImageIcon(Main.class.getResource("/search.png")));
+		label.setIcon(new ImageIcon(("images/search.png")));
 		label.setLabelFor(textField);
 
 		lblNewLabel = new JLabel("Nomenclature des professions et catégories socioprofessionnelles");
@@ -139,7 +139,7 @@ public class Main extends JFrame {
 				}
 			}
 		});
-		label_1.setIcon(new ImageIcon(Main.class.getResource("/aide.png")));
+		label_1.setIcon(new ImageIcon(("images/aide.png")));
 
 		JRadioButton rdbtnNormal = new JRadioButton("Normal");
 		rdbtnNormal.setForeground(Color.WHITE);
