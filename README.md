@@ -25,7 +25,11 @@ nomenclature des PCS is a Maven project. It can be built using the following com
 ```
 mvn install
 ```
+### Running the Application
 
+```
+java -jar target/pcs.jar
+```
 
 ## Deployment
 
